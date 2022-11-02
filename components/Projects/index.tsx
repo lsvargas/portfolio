@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { projects } from "../../utils/constants/projects";
 import CoolImage from "../CoolImage";
 
@@ -17,7 +18,7 @@ function Projects({}: Props) {
       </h3>
 
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#e656fa]/60">
-        {projects.map(({ title, description, imageUrl }, index) => (
+        {projects.map(({ title, description, imageUrl, technologiesIcons }, index) => (
           <div key={index} className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
             <CoolImage
               containerClasses="min-h-[300px] min-w-[350px] md:h-[375px] md:w-[600px]"
@@ -35,6 +36,18 @@ function Projects({}: Props) {
                 </span> 
                 {title}
               </h4>
+              <div className="flex justify-center space-x-2 my-2">
+                {technologiesIcons.map((tIcon, index) => (
+                  <div key={index} className="h-10 w-10 relative">
+                    <Image
+                      src={tIcon}
+                      layout="fill"
+                      className="rounded-full"
+                      alt=""
+                    />
+                  </div>
+                ))}
+              </div>
               <p className="text-lg text-center md:text-left">
                 {description}
               </p>

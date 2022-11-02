@@ -32,9 +32,8 @@ function Projects({}: Props) {
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center"> 
                 <span className="underline decoration-[#e656fa]/50">
-                  {`Case Study ${index + 1} of ${projects.length}: `}
+                  {title}
                 </span> 
-                {title}
               </h4>
               <div className="flex justify-center space-x-2 my-2">
                 {technologiesIcons.map((tIcon, index) => (
